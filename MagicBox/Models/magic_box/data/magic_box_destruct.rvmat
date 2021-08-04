@@ -10,7 +10,7 @@ PixelShaderID = "Super";
 VertexShaderID = "Super";
 class Stage1
 {
-	texture = "DBZDoors\Models\crate\data\dbz_crate_nohq.paa";
+	texture = "MagicBox\Models\magic_box\data\magic_box_nohq.paa";
 	uvSource = "tex";
 	class uvTransform
 	{
@@ -58,7 +58,7 @@ class Stage4
 };
 class Stage5
 {
-	texture = "DBZDoors\Models\crate\data\dbz_crate_smdi.paa";
+	texture = "MagicBox\Models\magic_box\data\magic_box_smdi.paa";
 	uvSource = "tex";
 	class uvTransform
 	{
