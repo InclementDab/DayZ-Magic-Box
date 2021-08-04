@@ -1,0 +1,169 @@
+{
+    "MagicCratePrice": 950,
+    "CanCrateChangeLocation": 1,
+    "MinimumRoolBeforeChange": 5,
+    "PossibleBoxPositions": [{
+            "Position": [
+                8812.01171875,
+                88.76884460449219,
+                5389.5966796875
+            ],
+            "Orientation": [
+                0.0, -0.0, -0.0
+            ]
+        },
+        {
+            "Position": [
+                8815.119140625,
+                88.76881408691406,
+                5390.998046875
+            ],
+            "Orientation": [-63.9124870300293, -0.0, -0.0]
+        },
+        {
+            "Position": [
+                8809.294921875,
+                88.76884460449219,
+                5392.33447265625
+            ],
+            "Orientation": [
+                98.40614318847656, -0.0, -0.0
+            ]
+        }
+    ],
+    "PossibleCrateItems": [{
+            "Item": "M4A1",
+            "Attachments": [
+                "M4_MPBttstck",
+                "M4_MPHndgrd",
+                "M4_CarryHandleOptic"
+            ],
+            "Mag": "Mag_STANAG_30Rnd"
+        },
+        {
+            "Item": "AK101",
+            "Attachments": [
+                "AK_WoodBttstck",
+                "AK_WoodHndgrd"
+            ],
+            "Mag": "Mag_AK101_30Rnd"
+        },
+        {
+            "Item": "AKM",
+            "Attachments": [
+                "AK_WoodBttstck",
+                "AK_WoodHndgrd"
+            ],
+            "Mag": "Mag_AKM_30Rnd"
+        },
+        {
+            "Item": "AKS74U",
+            "Attachments": [
+                "AK_WoodBttstck",
+                "AK_WoodHndgrd"
+            ],
+            "Mag": "Mag_AK74_30Rnd"
+        },
+        {
+            "Item": "FAL",
+            "Attachments": [
+                "Fal_OeBttstck"
+            ],
+            "Mag": "Mag_FAL_20Rnd"
+        },
+        {
+            "Item": "MP5K",
+            "Attachments": [
+                "MP5k_StockBttstck"
+            ],
+            "Mag": "Mag_MP5_30Rnd"
+        },
+        {
+            "Item": "Saiga",
+            "Attachments": [
+                "Saiga_Bttstck"
+            ],
+            "Mag": "Mag_Saiga_8Rnd"
+        },
+        {
+            "Item": "Scout",
+            "Attachments": [
+                "ACOGOptic"
+            ],
+            "Mag": "Mag_Scout_5Rnd"
+        },
+        {
+            "Item": "SVD",
+            "Attachments": [
+                "PSO11Optic"
+            ],
+            "Mag": "Mag_SVD_10Rnd"
+        },
+        {
+            "Item": "ASVAL",
+            "Attachments": [
+                "KobraOptic"
+            ],
+            "Mag": "Mag_VAL_20Rnd"
+        },
+        {
+            "Item": "VSS",
+            "Attachments": [],
+            "Mag": "Mag_VSS_10Rnd"
+        },
+        {
+            "Item": "Colt1911",
+            "Attachments": [],
+            "Mag": "Mag_1911_7Rnd"
+        },
+        {
+            "Item": "MakarovIJ70",
+            "Attachments": [],
+            "Mag": "Mag_IJ70_8Rnd"
+        },
+        {
+            "Item": "FNX45",
+            "Attachments": [],
+            "Mag": "Mag_FNX45_15Rnd"
+        },
+        {
+            "Item": "Izh18",
+            "Attachments": [],
+            "Mag": ""
+        },
+        {
+            "Item": "Winchester70",
+            "Attachments": [
+                "HuntingOptic"
+            ],
+            "Mag": ""
+        },
+        {
+            "Item": "Mosin9130",
+            "Attachments": [
+                "PUScopeOptic"
+            ],
+            "Mag": ""
+        },
+        {
+            "Item": "SKS",
+            "Attachments": [],
+            "Mag": ""
+        },
+        {
+            "Item": "Izh43Shotgun",
+            "Attachments": [],
+            "Mag": ""
+        },
+        {
+            "Item": "Flaregun",
+            "Attachments": [],
+            "Mag": ""
+        },
+        {
+            "Item": "M67Grenade",
+            "Attachments": [],
+            "Mag": ""
+        }
+    ]
+}

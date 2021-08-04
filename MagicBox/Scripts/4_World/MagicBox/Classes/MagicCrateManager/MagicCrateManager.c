@@ -24,7 +24,7 @@ class MagicCrateManager: JMModuleBase
 	override void OnMissionStart()
 	{
 		if (!FileExist(SETTINGS_FILE)) {
-			CopyFile("DBZDoors\\Scripts\\Data\\MagicCrateManagerSettings.json", SETTINGS_FILE);
+			CopyFile("MagicBox\\Scripts\\Data\\MagicCrateManagerSettings.json", SETTINGS_FILE);
 		}
 		
 		m_MagicCrateManagerSettings = new MagicCrateManagerSettings();
