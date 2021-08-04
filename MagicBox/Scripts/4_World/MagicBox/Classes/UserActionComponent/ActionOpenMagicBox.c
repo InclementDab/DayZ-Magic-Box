@@ -20,7 +20,7 @@ class ActionOpenMagicBox: ActionInteractBase
 		m_ActionTarget = target;
 		MagicBox crate = MagicBox.Cast(target.GetObject());
 		
-		int amnt = player.getPlayerCurrencyAmount();
+		int amnt = player.GetMagicBoxCurrency();
 		
 		return (crate && !crate.IsOpening() && amnt >= crate.GetCostToOpen());
 	}
@@ -33,7 +33,7 @@ class ActionOpenMagicBox: ActionInteractBase
 		}
 		
 		if (crate.TryOpenCrate(action_data.m_Player)) {
-			action_data.m_Player.deductPlayerCurrency(crate.GetCostToOpen());
+			action_data.m_Player.DeductMagicBoxCurrency(crate.GetCostToOpen());
 		}
 	}
 	

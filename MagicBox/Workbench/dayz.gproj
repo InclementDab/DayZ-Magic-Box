@@ -35,6 +35,8 @@ GameProjectClass {
 					Name "core"
 					Paths {
 						"scripts/1_Core"
+						"JM/CF/defines"
+						"JM/CF/scripts/1_Core"
 						"MagicBox/scripts/1_Core"
 					}
 					EntryPoint ""
@@ -50,6 +52,13 @@ GameProjectClass {
 					Name "game"
 					Paths {
 						"scripts/3_Game"
+						"JM/CF/defines"
+						"JM/CF/scripts/3_Game"
+						"JM/CF/XML/3_Game"
+						"JM/CF/ModStorage/3_Game"
+						"JM/CF/LayoutBindingManager/3_Game"
+						"JM/CF/Permissions/3_Game"
+						"JM/CF/DebugUI/3_Game"
 						"MagicBox/Scripts/3_Game"
 					}
 					EntryPoint "CreateGame"
@@ -58,6 +67,10 @@ GameProjectClass {
 					Name "world"
 					Paths {
 						"scripts/4_World"
+						"JM/CF/defines"
+						"JM/CF/scripts/4_World"
+						"JM/CF/ModStorage/4_World"
+						"JM/CF/Permissions/4_World"
 						"MagicBox/scripts/4_World"
 					}
 					EntryPoint ""
@@ -66,6 +79,10 @@ GameProjectClass {
 					Name "mission"
 					Paths {
 						"scripts/5_Mission"
+						"JM/CF/defines"
+						"JM/CF/scripts/5_Mission"
+						"JM/CF/LayoutBindingManager/5_Mission"
+						"JM/CF/Permissions/5_Mission"
 						"MagicBox/scripts/5_Mission"
 					}
 					EntryPoint "CreateMission"

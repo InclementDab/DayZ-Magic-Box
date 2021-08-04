@@ -19,7 +19,7 @@ class ActionCantOpenMagicBox: ActionInteractBase
 	{
 		m_ActionTarget = target;
 		MagicBox crate = MagicBox.Cast(target.GetObject());
-		return (crate && !crate.IsOpening() && player.getPlayerCurrencyAmount() < crate.GetCostToOpen());
+		return (crate && !crate.IsOpening() && player.GetMagicBoxCurrency() < crate.GetCostToOpen());
 	}
 	
 	override bool HasTarget()
