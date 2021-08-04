@@ -1,7 +1,7 @@
 
 class CfgPatches
 {
-	class ModTemplate_Scripts
+	class MagicBox_Scripts
 	{
         units[] = {};
         weapons[] = {};
@@ -12,15 +12,15 @@ class CfgPatches
 
 class CfgMods 
 {
-	class DZ_ModTemplate
+	class DZ_MagicBox
 	{
 		name = "Mod Template";
-		dir = "ModTemplate";
+		dir = "MagicBox";
 		credits = "";
 		author = "";
-		creditsJson = "ModTemplate/Scripts/Data/Credits.json";
-		versionPath = "ModTemplate/Scripts/Data/Version.hpp";
-		inputs = "ModTemplate/Scripts/Data/Inputs.xml";
+		creditsJson = "MagicBox/Scripts/Data/Credits.json";
+		versionPath = "MagicBox/Scripts/Data/Version.hpp";
+		inputs = "MagicBox/Scripts/Data/Inputs.xml";
 		type = "mod";
 		dependencies[] =
 		{
@@ -37,8 +37,8 @@ class CfgMods
 				value = "";
 				files[] =
 				{
-					"ModTemplate/scripts/common",
-					"ModTemplate/scripts/1_core"
+					"MagicBox/scripts/common",
+					"MagicBox/scripts/1_core"
 				};
 			};
 
@@ -47,8 +47,8 @@ class CfgMods
 				value="";
 				files[] = 
 				{
-					"ModTemplate/scripts/common",
-					"ModTemplate/scripts/3_Game"
+					"MagicBox/scripts/common",
+					"MagicBox/scripts/3_Game"
 				};
 			};
 			class worldScriptModule
@@ -56,8 +56,8 @@ class CfgMods
 				value="";
 				files[] = 
 				{
-					"ModTemplate/scripts/common",
-					"ModTemplate/scripts/4_World"
+					"MagicBox/scripts/common",
+					"MagicBox/scripts/4_World"
 				};
 			};
 
@@ -66,8 +66,8 @@ class CfgMods
 				value="";
 				files[] = 
 				{
-					"ModTemplate/scripts/common",
-					"ModTemplate/scripts/5_Mission"
+					"MagicBox/scripts/common",
+					"MagicBox/scripts/5_Mission"
 				};
 			};
 		};

@@ -1,9 +1,9 @@
-name = "ModTemplate";
+name = "MagicBox";
 picture = "";
 logo = "";
 logoSmall = "";
 logoOver = "";
-tooltip = "ModTemplate";
+tooltip = "MagicBox";
 overview = "";
 action = "";
 author = "";
