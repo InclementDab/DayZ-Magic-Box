@@ -36,8 +36,8 @@ class CfgVehicles
 		physLayer = "item_large";
 		hiddenSelections[] = {""};
 		storageCategory = SC_building;
-		hiddenSelectionsTextures[] = {"\MagicBox\Models\magic_box\data\dbz_crate_co.paa","\MagicBox\Models\magic_box\data\dbz_crate_co.paa","\MagicBox\Models\magic_box\data\dbz_crate_co.paa"};
-		hiddenSelectionsMaterials[] = {"\MagicBox\Models\magic_box\data\dbz_crate.rvmat","\MagicBox\Models\magic_box\data\dbz_crate.rvmat","\MagicBox\Models\magic_box\data\dbz_crate.rvmat"};
+		hiddenSelectionsTextures[] = {"\MagicBox\Models\magic_box\data\magic_box_co.paa","\MagicBox\Models\magic_box\data\magic_box_co.paa","\MagicBox\Models\magic_box\data\magic_box_co.paa"};
+		hiddenSelectionsMaterials[] = {"\MagicBox\Models\magic_box\data\magic_box.rvmat","\MagicBox\Models\magic_box\data\magic_box.rvmat","\MagicBox\Models\magic_box\data\magic_box.rvmat"};
 		class DamageSystem
 		{
 			class GlobalHealth
@@ -45,7 +45,7 @@ class CfgVehicles
 				class Health
 				{
 					hitpoints = 100;
-					healthLevels[] = {{1.0,{"\MagicBox\Models\magic_box\data\dbz_crate.rvmat"}},{0.7,{"\MagicBox\Models\magic_box\data\dbz_crate.rvmat"}},{0.5,{"\MagicBox\Models\magic_box\data\dbz_crate_damage.rvmat"}},{0.3,{"\MagicBox\Models\magic_box\data\dbz_crate_damage.rvmat"}},{0.0,{"\MagicBox\Models\magic_box\data\dbz_crate_destruct.rvmat"}}};
+					healthLevels[] = {{1.0,{"\MagicBox\Models\magic_box\data\magic_box.rvmat"}},{0.7,{"\MagicBox\Models\magic_box\data\magic_box.rvmat"}},{0.5,{"\MagicBox\Models\magic_box\data\magic_box_damage.rvmat"}},{0.3,{"\MagicBox\Models\magic_box\data\magic_box_damage.rvmat"}},{0.0,{"\MagicBox\Models\magic_box\data\magic_box_destruct.rvmat"}}};
 				};
 			};
 			class GlobalArmor
@@ -119,13 +119,13 @@ class CfgSoundShaders
 
 	class BoxJingle_SoundShader: Box_SoundShaderBase
 	{
-		samples[] = {{"MagicBox\Models\magic_box\dbz_crate_open", 1}};
+		samples[] = {{"MagicBox\Models\magic_box\magic_box_open", 1}};
 	};
 
 	class BoxFail_SoundShader: Box_SoundShaderBase
 	{
 		volume = 5;
-		samples[] = {{"MagicBox\Models\magic_box\dbz_crate_fail", 1}};
+		samples[] = {{"MagicBox\Models\magic_box\magic_box_fail", 1}};
 	};
 
 	class BoxOpen_SoundShader: Box_SoundShaderBase
