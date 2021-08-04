@@ -139,3 +139,34 @@ class CfgSoundShaders
 	};
 };
 
+class CfgSoundSets
+{
+	class Box_SoundSetBase
+	{
+		sound3DProcessingType = "character3DProcessingType";
+		volumeCurve = "characterAttenuationCurve";
+		spatial = 1;
+		doppler = 0;
+		loop = 0;
+	};
+
+	class BoxJingle_SoundSet: Box_SoundSetBase
+	{
+		soundShaders[] = {"BoxJingle_SoundShader"};
+	};
+
+	class BoxFail_SoundSet: Box_SoundSetBase
+	{
+		soundShaders[] = {"BoxFail_SoundShader"};
+	};
+
+	class BoxOpen_SoundSet: Box_SoundSetBase
+	{
+		soundShaders[] = {"BoxOpen_SoundShader"};
+	};
+
+	class BoxClose_SoundSet: Box_SoundSetBase
+	{
+		soundShaders[] = {"BoxClose_SoundShader"};
+	};
+};
