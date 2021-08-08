@@ -5,7 +5,7 @@ class MagicBox: ItemBase
 	static const int RPC_CRATE_FAIL = 84366;
 	
 	static const float ANIMATION_DURATION = 5.5;
-	static const float USER_WAIT_TIME = 10.0;
+	static const float USER_WAIT_TIME = 12.0;
 
 	protected bool m_IsOpening;
 	protected int m_CostToOpen;

@@ -38,7 +38,7 @@ modded class PlayerBase
 				}
 				
 				// cursed_monies
-				TIntArray money();
+				TIntArray money = {};
 				Param2<PlayerBase, TIntArray> player_worth_params(this, money);
 				int expansion_market_currency;
 				g_Script.CallFunctionParams(expansion_market, "GetPlayerWorth", expansion_market_currency, player_worth_params);				
@@ -75,13 +75,18 @@ modded class PlayerBase
 				TIntArray money();
 				Param4<PlayerBase, int, TIntArray, bool> find_params(this, amount, money, true);
 				g_Script.CallFunctionParams(expansion_market, "FindMoneyAndCountTypesEx", success, find_params);
+				if (!success) {
+					Error("[MagicBox] FindMoneyAndCountTypes failed! (oh no)");
+					break;
+				}
 				
+				array<ItemBase> spawned_money = {};
 				int removed;
 				g_Script.CallFunction(expansion_market, "RemoveMoney", removed, this);
-				Print(removed - amount);
+				EntityAI parent = this;
 				if (removed - amount > 0) {
-					g_Script.CallFunctionParams(expansion_market, "SpawnMoney", null, new Param3<PlayerBase, EntityAI, int>(this, this, removed - amount));
-					g_Script.CallFunctionParams(expansion_market, "CheckSpawn", null, new Param2<PlayerBase, EntityAI>(this, this));
+					Param3<PlayerBase, EntityAI, int> spawn_params(this, parent, removed - amount);
+					g_Script.CallFunctionParams(expansion_market, "SpawnMoneyEx", spawned_money, spawn_params);
 				}
 				
 				break;
