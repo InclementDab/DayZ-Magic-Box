@@ -16,7 +16,6 @@ modded class PlayerBase
 			return;
 		}
 		
-		Print(currency_type);
 		m_MagicBoxCurrencyType = currency_type;
 		SetSynchDirty();
 	}

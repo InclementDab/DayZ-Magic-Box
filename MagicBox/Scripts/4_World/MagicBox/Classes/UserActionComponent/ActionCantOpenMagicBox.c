@@ -15,6 +15,11 @@ class ActionCantOpenMagicBox: ActionInteractBase
 		m_ConditionTarget = new CCTNone;
 	}
 	
+	override bool HasTarget()
+	{
+		return true;
+	}
+	
 	override bool ActionCondition(PlayerBase player, ActionTarget target, ItemBase item)
 	{
 		m_ActionTarget = target;
@@ -27,12 +32,7 @@ class ActionCantOpenMagicBox: ActionInteractBase
 		
 		return (crate && !crate.IsOpening() && player.GetMagicBoxCurrency() < crate.GetCostToOpen());
 	}
-	
-	override bool HasTarget()
-	{
-		return true;
-	}
-	
+		
 	override string GetText()
 	{
 		if (!m_ActionTarget) {

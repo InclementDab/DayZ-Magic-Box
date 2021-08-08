@@ -7,7 +7,7 @@ class ActionOpenMagicBox: ActionInteractBase
 	{
 		m_CommandUID = DayZPlayerConstants.CMD_ACTIONMOD_INTERACTONCE;
 		m_StanceMask = DayZPlayerConstants.STANCEMASK_CROUCH | DayZPlayerConstants.STANCEMASK_ERECT;
-		m_HUDCursorIcon = CursorIcons.CloseDoors;
+		m_HUDCursorIcon = CursorIcons.OpenDoors;
 	}
 	
 	override void CreateConditionComponents()  
@@ -16,6 +16,11 @@ class ActionOpenMagicBox: ActionInteractBase
 		m_ConditionTarget = new CCTNone;
 	}
 		
+	override bool HasTarget()
+	{
+		return true;
+	}
+	
 	override bool ActionCondition(PlayerBase player, ActionTarget target, ItemBase item)
 	{
 		m_Player = player;
