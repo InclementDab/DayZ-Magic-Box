@@ -339,7 +339,6 @@ class MagicBox: ItemBase
 	{
 		super.SetActions();
 		AddAction(ActionOpenMagicBox);
-		AddAction(ActionCantOpenMagicBox);
 	}
 	
 	override bool CanPutIntoHands(EntityAI parent)

@@ -5,6 +5,5 @@ modded class ActionConstructor
 		super.RegisterActions(actions);
 		
 		actions.Insert(ActionOpenMagicBox);
-		actions.Insert(ActionCantOpenMagicBox);
 	}
 }

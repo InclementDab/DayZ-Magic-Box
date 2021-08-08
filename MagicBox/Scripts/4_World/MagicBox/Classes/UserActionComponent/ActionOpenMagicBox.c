@@ -1,3 +1,4 @@
+// Only action on the box, handles everything
 class ActionOpenMagicBox: ActionInteractBase
 {
 	protected PlayerBase m_Player;
@@ -26,16 +27,25 @@ class ActionOpenMagicBox: ActionInteractBase
 		m_Player = player;
 		m_ActionTarget = target;
 		MagicBox crate = MagicBox.Cast(target.GetObject());
-		
-		int amnt = player.GetMagicBoxCurrency();
-		
-		return (crate && !crate.IsOpening() && amnt >= crate.GetCostToOpen());
+				
+		return (crate && !crate.IsOpening());
 	}
 	
 	override void OnEndServer(ActionData action_data)
 	{
 		MagicBox crate = MagicBox.Cast(action_data.m_Target.GetObject());
 		if (!crate) {
+			return;
+		}
+		
+		// If we dont have a currency enabled, open it
+		if (action_data.m_Player.GetMagicBoxCurrencyType() == MagicBoxCurrencyType.NONE) {
+			crate.TryOpenCrate(action_data.m_Player);
+			return;
+		}
+		
+		// If we dont have enough funds
+		if (action_data.m_Player.GetMagicBoxCurrency() < crate.GetCostToOpen()) {
 			return;
 		}
 		
@@ -54,9 +64,13 @@ class ActionOpenMagicBox: ActionInteractBase
 		if (!crate) {
 			return "Invalid Crate";
 		}
-		
+				
 		if (m_Player && m_Player.GetMagicBoxCurrencyType() == MagicBoxCurrencyType.NONE) {
 			return "Open Crate";
+		}
+		
+		if (m_Player.GetMagicBoxCurrency() < crate.GetCostToOpen()) {
+			return string.Format("Not Enough Money [%1]", crate.GetCostToOpen());
 		}
 	
 		return string.Format("Open Crate [%1]", crate.GetCostToOpen());
