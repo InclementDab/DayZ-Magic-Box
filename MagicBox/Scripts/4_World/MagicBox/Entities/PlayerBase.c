@@ -31,8 +31,23 @@ modded class PlayerBase
 	{
 		switch (m_MagicBoxCurrencyType) {
 			case MagicBoxCurrencyType.EXPANSION: {
+				typename expansion_market = String("ExpansionMarketModule").ToType();
+				if (!expansion_market) {
+					Error("[MagicBox] Expansion not running");
+					return -1;
+				}
 				
-				return -1;
+				JMModuleBase module = GetModuleManager().GetModule(expansion_market);
+				if (!module) {
+					Error("[MagicBox] Expansion Market not found");
+					return -1;
+				}
+				
+				TIntArray money();
+				Param2<PlayerBase, TIntArray> player_worth_params(this, money);
+				int expansion_market_currency;
+				g_Script.CallFunctionParams(module, "GetPlayerWorth", expansion_market_currency, player_worth_params);				
+				return expansion_market_currency;
 			}
 			
 			case MagicBoxCurrencyType.TRADER: {
