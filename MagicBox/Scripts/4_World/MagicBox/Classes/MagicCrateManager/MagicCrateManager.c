@@ -55,7 +55,7 @@ class MagicCrateManager: JMModuleBase
 	
 	override void OnInvokeConnect(PlayerBase player, PlayerIdentity identity)
 	{
-		player.SetMagicBoxCurrencyType(m_MagicCrateManagerSettings.MagicCrateExchangeType);
+		player.SetMagicBoxCurrencyType(m_MagicCrateManagerSettings.GetMagicCrateExchangeType());
 	}
 	
 	MagicBox ShuffleNewCrate(MagicBox current_crate)

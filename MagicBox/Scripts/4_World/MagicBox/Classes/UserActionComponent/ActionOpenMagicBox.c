@@ -1,5 +1,6 @@
 class ActionOpenMagicBox: ActionInteractBase
 {
+	protected PlayerBase m_Player;
 	protected ActionTarget m_ActionTarget;
 	
 	void ActionOpenMagicCrate()
@@ -17,6 +18,7 @@ class ActionOpenMagicBox: ActionInteractBase
 		
 	override bool ActionCondition(PlayerBase player, ActionTarget target, ItemBase item)
 	{
+		m_Player = player;
 		m_ActionTarget = target;
 		MagicBox crate = MagicBox.Cast(target.GetObject());
 		
@@ -46,6 +48,10 @@ class ActionOpenMagicBox: ActionInteractBase
 		MagicBox crate = MagicBox.Cast(m_ActionTarget.GetObject());
 		if (!crate) {
 			return "Invalid Crate";
+		}
+		
+		if (m_Player && m_Player.GetMagicBoxCurrencyType() == MagicBoxCurrencyType.NONE) {
+			return "Open Crate";
 		}
 	
 		return string.Format("Open Crate [%1]", crate.GetCostToOpen());

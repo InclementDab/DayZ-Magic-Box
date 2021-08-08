@@ -2,40 +2,26 @@ modded class PlayerBase
 {	
 	static const int MAGIC_BOX_SET_CURRENCY_TYPE = 84363;
 	
-	protected string m_MagicBoxCurrencyType = "NONE";
+	protected MagicBoxCurrencyType m_MagicBoxCurrencyType = MagicBoxCurrencyType.NONE;
 	
 	void PlayerBase()
 	{
+		RegisterNetSyncVariableInt("m_MagicBoxCurrencyType");
 	}
-	
-	override void OnRPC(PlayerIdentity sender, int rpc_type, ParamsReadContext ctx)
-	{
-		super.OnRPC(sender, rpc_type, ctx);
 		
-		switch (rpc_type) {
-			case MAGIC_BOX_SET_CURRENCY_TYPE: {
-				Param1<string> currency_params;
-				if (!ctx.Read(currency_params)) {
-					break;
-				}
-				
-				m_MagicBoxCurrencyType = currency_params.param1;
-			}
-		}
-	}
-	
-	void SetMagicBoxCurrencyType(string currency_type)
+	void SetMagicBoxCurrencyType(MagicBoxCurrencyType currency_type)
 	{
 		if (!GetGame().IsServer()) {
 			Error("SetMagicBoxCurrencyType must be called on server");
 			return;
 		}
 		
+		Print(currency_type);
 		m_MagicBoxCurrencyType = currency_type;
-		GetGame().RPCSingleParam(this, MAGIC_BOX_SET_CURRENCY_TYPE, new Param1<string>(currency_type), true, GetIdentity());
+		SetSynchDirty();
 	}
 	
-	string GetMagicBoxCurrencyType()
+	MagicBoxCurrencyType GetMagicBoxCurrencyType()
 	{
 		return m_MagicBoxCurrencyType;
 	}
@@ -45,22 +31,22 @@ modded class PlayerBase
 	int GetMagicBoxCurrency()
 	{
 		switch (m_MagicBoxCurrencyType) {
-			case "EXPANSION": {
+			case MagicBoxCurrencyType.EXPANSION: {
 				
 				return -1;
 			}
 			
-			case "TRADER": {
+			case MagicBoxCurrencyType.TRADER: {
 				
 				return -1;
 			}
 			
-			case "NONE": {
+			case MagicBoxCurrencyType.NONE: {
 				return int.MAX;
 			}
 		}
 		
-		Error("[MagicBox] Invalid currency type " + m_MagicBoxCurrencyType);
+		Error("[MagicBox] Invalid currency type " + typename.EnumToString(MagicBoxCurrencyType, m_MagicBoxCurrencyType));
 		return -1;
 	}
 	

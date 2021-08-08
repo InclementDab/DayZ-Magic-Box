@@ -57,4 +57,19 @@ class MagicCrateManagerSettings
 		new CrateWeaponEntry("Flaregun"),
 		new CrateWeaponEntry("M67Grenade"),*/
 	};
+	
+	MagicBoxCurrencyType GetMagicCrateExchangeType()
+	{
+		string currency_type = MagicCrateExchangeType;
+		currency_type.ToLower();
+		
+		switch (currency_type) {
+			case "none": return MagicBoxCurrencyType.NONE;
+			case "expansion": return MagicBoxCurrencyType.EXPANSION;
+			case "trader": return MagicBoxCurrencyType.TRADER;
+		}
+		
+		Error("[MagicBox] Invalid currency type " + currency_type);
+		return -1;
+	}
 }
