@@ -35,6 +35,11 @@ modded class PlayerBase
 		GetGame().RPCSingleParam(this, MAGIC_BOX_SET_CURRENCY_TYPE, new Param1<string>(currency_type), true, GetIdentity());
 	}
 	
+	string GetMagicBoxCurrencyType()
+	{
+		return m_MagicBoxCurrencyType;
+	}
+	
 	// These are wrappers so we dont NEED mods like trader for the crate to work
 	// it also means that you can do things like Expansion, or whatever!
 	int GetMagicBoxCurrency()
