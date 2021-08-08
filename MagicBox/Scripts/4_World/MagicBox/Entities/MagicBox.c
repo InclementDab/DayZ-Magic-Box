@@ -146,7 +146,7 @@ class MagicBox: ItemBase
 			m_BoxTimer.Stop();
 			
 			// It failed
-			if (Math.RandomIntInclusive(0, 5) == 1 && settings.CanCrateChangeLocation && m_RollCount > settings.MinimumRoolBeforeChange) {				
+			if (Math.RandomIntInclusive(0, 5) == 1 && settings.CanCrateChangeLocation && m_RollCount > settings.MinimumRollBeforeChange) {				
 				GetGame().ObjectDelete(m_DisplayedWeapon);
 				m_DisplayedWeapon = CreatePreviewItem("Bear_Pink", m_DisplayedWeaponPosition, GetOrientation() + Vector(180, 0, 0));
 				OnCrateFail();

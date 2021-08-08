@@ -1,7 +1,8 @@
 {
+    "MagicCrateExchangeType": "NONE",
     "MagicCratePrice": 950,
     "CanCrateChangeLocation": 1,
-    "MinimumRoolBeforeChange": 5,
+    "MinimumRollBeforeChange": 5,
     "PossibleBoxPositions": [{
             "Position": [
                 8812.01171875,

@@ -1,8 +1,13 @@
 class MagicCrateManagerSettings
 {
+	// EXPANSION, TRADER, NONE
+	string MagicCrateExchangeType = "NONE";
+	
+	// only valid for EXPANSION and TRADER types
 	int MagicCratePrice = 950;
+	
 	bool CanCrateChangeLocation = true;
-	int MinimumRoolBeforeChange = 5;
+	int MinimumRollBeforeChange = 5;
 	ref array<ref MagicBoxLocation> PossibleBoxPositions = {
 		/*new MagicBoxLocation("8812.011719 88.768845 5389.596680", "0.000000 -0.000000 -0.000000"),
 		new MagicBoxLocation("8815.119141 88.768814 5390.998047", "-63.912487 -0.000000 -0.00000"),
