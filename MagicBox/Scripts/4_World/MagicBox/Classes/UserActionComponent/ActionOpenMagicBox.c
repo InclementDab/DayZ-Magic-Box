@@ -14,7 +14,7 @@ class ActionOpenMagicBox: ActionInteractBase
 	override void CreateConditionComponents()  
 	{
 		m_ConditionItem = new CCINone;
-		m_ConditionTarget = new CCTNone;
+		m_ConditionTarget = new CCTCursor(UAMaxDistances.DEFAULT);
 	}
 		
 	override bool HasTarget()
@@ -27,8 +27,10 @@ class ActionOpenMagicBox: ActionInteractBase
 		m_Player = player;
 		m_ActionTarget = target;
 		MagicBox crate = MagicBox.Cast(target.GetObject());
-				
-		return (crate && !crate.IsOpening());
+		
+		string selection = target.GetObject().GetActionComponentName(target.GetComponentIndex());
+		Print(selection);
+		return (crate && !crate.IsOpening() && selection == "main_box");
 	}
 	
 	override void OnEndServer(ActionData action_data)
