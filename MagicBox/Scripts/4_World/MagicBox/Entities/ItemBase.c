@@ -1,11 +1,3 @@
-enum MysteryBoxWeaponState
-{
-	NORMAL = 0,
-	PREVIEW = 1,
-	AWAITING_USER = 2,
-	TAKEN = 3
-};
-
 modded class ItemBase
 {
 	protected MysteryBoxWeaponState m_MysteryBoxWeaponState;
@@ -63,23 +55,19 @@ modded class ItemBase
 	{
 		return super.IsInventoryVisible() && GetMysteryBoxState() != MysteryBoxWeaponState.PREVIEW;
 	}
-	
-	void PlayCrateFailSound()
-	{
-		EffectSound sound;
-		if (!PlaySoundSet(sound, "BoxFail_SoundSet", 0, 0)) {
-			Error("Failed to play jingle!");
-			return;
-		}
-	}
-	
+		
 	override void OnRPC(PlayerIdentity sender, int rpc_type, ParamsReadContext ctx)
 	{
 		super.OnRPC(sender, rpc_type, ctx);
 		
 		switch (rpc_type) {
 			case MagicBox.RPC_CRATE_FAIL: {
-				PlayCrateFailSound();
+				EffectSound sound;
+				if (!PlaySoundSet(sound, "BoxFail_SoundSet", 0, 0)) {
+					Error("Failed to play jingle!");
+					break;
+				}
+				
 				break;
 			}
 		}
