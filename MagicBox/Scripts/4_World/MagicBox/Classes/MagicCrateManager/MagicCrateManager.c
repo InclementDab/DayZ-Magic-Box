@@ -53,6 +53,11 @@ class MagicCrateManager: JMModuleBase
 		GetGame().ObjectDelete(m_CurrentCrate);
 	}
 	
+	override void OnInvokeConnect(PlayerBase player, PlayerIdentity identity)
+	{
+		player.SetMagicBoxCurrencyType(m_MagicCrateManagerSettings.MagicCrateExchangeType);
+	}
+	
 	MagicBox ShuffleNewCrate(MagicBox current_crate)
 	{
 		vector current_position = vector.Zero;
