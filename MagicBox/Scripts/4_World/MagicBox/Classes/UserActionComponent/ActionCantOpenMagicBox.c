@@ -19,6 +19,12 @@ class ActionCantOpenMagicBox: ActionInteractBase
 	{
 		m_ActionTarget = target;
 		MagicBox crate = MagicBox.Cast(target.GetObject());
+		
+		// Never show when its NONE
+		if (player.GetMagicBoxCurrencyType() == MagicBoxCurrencyType.NONE) {
+			return false;
+		}
+		
 		return (crate && !crate.IsOpening() && player.GetMagicBoxCurrency() < crate.GetCostToOpen());
 	}
 	
@@ -37,7 +43,7 @@ class ActionCantOpenMagicBox: ActionInteractBase
 		if (!crate) {
 			return "Invalid Crate";
 		}
-	
+		
 		return string.Format("Not Enough Money [%1]", crate.GetCostToOpen());
 	}
 }
