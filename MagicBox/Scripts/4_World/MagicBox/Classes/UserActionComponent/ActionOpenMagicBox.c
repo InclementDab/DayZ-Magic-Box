@@ -68,7 +68,7 @@ class ActionOpenMagicBox: ActionInteractBase
 		if (m_Player && m_Player.GetMagicBoxCurrencyType() == MagicBoxCurrencyType.NONE) {
 			return "Open Crate";
 		}
-		
+				
 		if (m_Player.GetMagicBoxCurrency() < crate.GetCostToOpen()) {
 			return string.Format("Not Enough Money [%1]", crate.GetCostToOpen());
 		}

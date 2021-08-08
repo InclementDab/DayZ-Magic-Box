@@ -36,8 +36,10 @@ modded class PlayerBase
 			}
 			
 			case MagicBoxCurrencyType.TRADER: {
-				
-				return -1;
+				int value;
+				// Trader mod function
+				g_Script.CallFunction(this, "getPlayerCurrencyAmount", value, null);
+				return value;
 			}
 			
 			case MagicBoxCurrencyType.NONE: {
@@ -49,7 +51,19 @@ modded class PlayerBase
 		return -1;
 	}
 	
-	void DeductMagicBoxCurrency(int currency)
+	void DeductMagicBoxCurrency(int amount)
 	{
+		switch (m_MagicBoxCurrencyType) {
+			case MagicBoxCurrencyType.EXPANSION: {
+				
+				break;
+			}
+			
+			case MagicBoxCurrencyType.TRADER: {
+				// Trader mod function
+				g_Script.CallFunction(this, "deductPlayerCurrency", null, amount);
+				break;
+			}
+		}		
 	}
 }
