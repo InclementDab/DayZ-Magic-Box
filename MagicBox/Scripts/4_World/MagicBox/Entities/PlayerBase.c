@@ -31,28 +31,23 @@ modded class PlayerBase
 	{
 		switch (m_MagicBoxCurrencyType) {
 			case MagicBoxCurrencyType.EXPANSION: {
-				typename expansion_market = String("ExpansionMarketModule").ToType();
+				JMModuleBase expansion_market = GetExpansionMarketModule();
 				if (!expansion_market) {
-					Error("[MagicBox] Expansion not running");
-					return -1;
-				}
-				
-				JMModuleBase module = GetModuleManager().GetModule(expansion_market);
-				if (!module) {
 					Error("[MagicBox] Expansion Market not found");
-					return -1;
+					break;
 				}
 				
+				// cursed_monies
 				TIntArray money();
 				Param2<PlayerBase, TIntArray> player_worth_params(this, money);
 				int expansion_market_currency;
-				g_Script.CallFunctionParams(module, "GetPlayerWorth", expansion_market_currency, player_worth_params);				
+				g_Script.CallFunctionParams(expansion_market, "GetPlayerWorth", expansion_market_currency, player_worth_params);				
 				return expansion_market_currency;
 			}
 			
 			case MagicBoxCurrencyType.TRADER: {
-				int value;
 				// Trader mod function
+				int value;
 				g_Script.CallFunction(this, "getPlayerCurrencyAmount", value, null);
 				return value;
 			}
@@ -70,6 +65,24 @@ modded class PlayerBase
 	{
 		switch (m_MagicBoxCurrencyType) {
 			case MagicBoxCurrencyType.EXPANSION: {
+				JMModuleBase expansion_market = GetExpansionMarketModule();
+				if (!expansion_market) {
+					Error("[MagicBox] Expansion Market not found");
+					break;
+				}
+				
+				bool success;
+				TIntArray money();
+				Param4<PlayerBase, int, TIntArray, bool> find_params(this, amount, money, true);
+				g_Script.CallFunctionParams(expansion_market, "FindMoneyAndCountTypesEx", success, find_params);
+				
+				int removed;
+				g_Script.CallFunction(expansion_market, "RemoveMoney", removed, this);
+				Print(removed - amount);
+				if (removed - amount > 0) {
+					g_Script.CallFunctionParams(expansion_market, "SpawnMoney", null, new Param3<PlayerBase, EntityAI, int>(this, this, removed - amount));
+					g_Script.CallFunctionParams(expansion_market, "CheckSpawn", null, new Param2<PlayerBase, EntityAI>(this, this));
+				}
 				
 				break;
 			}
@@ -80,5 +93,20 @@ modded class PlayerBase
 				break;
 			}
 		}		
+	}
+	
+	JMModuleBase GetExpansionMarketModule()
+	{
+		typename expansion_market = String("ExpansionMarketModule").ToType();
+		if (!expansion_market) {
+			return null;
+		}
+		
+		JMModuleBase module = GetModuleManager().GetModule(expansion_market);
+		if (!module) {
+			return null;
+		}
+		
+		return module;
 	}
 }
