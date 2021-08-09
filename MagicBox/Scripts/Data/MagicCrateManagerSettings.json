@@ -2,7 +2,8 @@
     "MagicCrateExchangeType": "NONE",
     "MagicCratePrice": 950,
     "CanCrateChangeLocation": 1,
-    "MinimumRollBeforeChange": 5,
+    "MinimumRollBeforeFailChance": 5,
+    "BoxFailChance": 20,
     "PossibleBoxPositions": [{
             "Position": [
                 8812.01171875,

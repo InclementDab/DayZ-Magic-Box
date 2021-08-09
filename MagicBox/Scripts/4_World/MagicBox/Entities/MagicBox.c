@@ -59,9 +59,9 @@ class MagicBox: ItemBase
 			return false;
 		}
 		
-		/*if (player.GetCreditsCount() < 800) {
+		if (player.GetMagicBoxCurrency() < m_CostToOpen) {
 			return false;
-		}*/
+		}
 		
 		if (m_IsOpening) {
 			return false;
@@ -146,7 +146,7 @@ class MagicBox: ItemBase
 			m_BoxTimer.Stop();
 			
 			// It failed
-			if (Math.RandomIntInclusive(0, 5) == 1 && settings.CanCrateChangeLocation && m_RollCount > settings.MinimumRollBeforeChange) {				
+			if (Math.RandomIntInclusive(0, 100) < settings.BoxFailChance && settings.CanCrateChangeLocation && m_RollCount > settings.MinimumRollBeforeFailChance) {				
 				GetGame().ObjectDelete(m_DisplayedWeapon);
 				m_DisplayedWeapon = CreatePreviewItem("Bear_Pink", m_DisplayedWeaponPosition, GetOrientation() + Vector(180, 0, 0));
 				OnCrateFail();
@@ -214,6 +214,10 @@ class MagicBox: ItemBase
 
 	ItemBase CreatePreviewItem(CrateWeaponEntry entry, vector position, vector orientation)
 	{
+		if (!AllowedToSpawnType(entry.Item)) {
+			return null;
+		}
+		
 		ItemBase item = entry.CreateEntry(position, orientation);
 		if (!item) {
 			Print("Could not create item " + entry.Item);
@@ -226,6 +230,10 @@ class MagicBox: ItemBase
 	
 	ItemBase CreatePreviewItem(string type, vector position, vector orientation)
 	{
+		if (!AllowedToSpawnType(type)) {
+			return null;
+		}
+		
 		ItemBase item = ItemBase.Cast(GetGame().CreateObject(type, position, false, false, false));
 		if (!item) {
 			Print("Could not create item " + type);
@@ -238,7 +246,12 @@ class MagicBox: ItemBase
 		item.Update();
 		
 		return item;
-	}		
+	}
+	
+	bool AllowedToSpawnType(string type)
+	{		
+		return true;
+	}
 
 	bool IsOpening()
 	{
