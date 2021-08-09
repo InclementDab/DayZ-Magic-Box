@@ -163,7 +163,7 @@ class MagicBox: ItemBase
 			return;
 		}
 		
-		m_DisplayedWeaponPosition = SmoothLerpVector(GetWeaponRiseStartPosition(), GetWeaponRiseEndPosition(), tfactor);
+		m_DisplayedWeaponPosition = Math.SmoothLerpVector(GetWeaponRiseStartPosition(), GetWeaponRiseEndPosition(), tfactor);
 		while (!m_DisplayedWeapon) {
 			m_DisplayedWeapon = CreatePreviewItem(settings.PossibleCrateItems.GetRandomElement(), m_DisplayedWeaponPosition, GetOrientation());
 		}
@@ -175,7 +175,7 @@ class MagicBox: ItemBase
 	void OnFailTimer(float duration, int start_time)
 	{
 		float tfactor = (1 / duration) * (GetGame().GetTime() - start_time) / 1000;
-		m_DisplayedWeaponPosition = SmoothLerpVector(GetWeaponRiseEndPosition(), GetWeaponRiseEndPosition() + "0 10 0", tfactor);
+		m_DisplayedWeaponPosition = Math.SmoothLerpVector(GetWeaponRiseEndPosition(), GetWeaponRiseEndPosition() + "0 10 0", tfactor);
 		if (m_DisplayedWeapon) {
 			m_DisplayedWeapon.SetPosition(m_DisplayedWeaponPosition);
 			m_DisplayedWeapon.Update();
@@ -192,7 +192,7 @@ class MagicBox: ItemBase
 	void OnWaitTimer(float duration, int start_time)
 	{
 		float tfactor = (1 / duration) * (GetGame().GetTime() - start_time) / 1000;
-		m_DisplayedWeaponPosition = SmoothLerpVector(GetWeaponRiseEndPosition(), GetWeaponRiseStartPosition(), tfactor);
+		m_DisplayedWeaponPosition = Math.SmoothLerpVector(GetWeaponRiseEndPosition(), GetWeaponRiseStartPosition(), tfactor);
 		
 		if (m_DisplayedWeapon) {
 			if (m_DisplayedWeapon.GetMysteryBoxState() == MysteryBoxWeaponState.TAKEN) {
@@ -316,26 +316,6 @@ class MagicBox: ItemBase
 				break;
 			}
 		}
-	}
-	
-	static vector SmoothLerpVector(vector p1, vector p2, float time)
-	{
-		vector v1;
-		for (int i = 0; i < 3; i++) {
-			v1[i] = SmoothLerp(p1[i], p2[i], time);
-		}
-		
-		return v1;
-	}
-	
-	static float SmoothLerp(float a, float b, float t)
-	{
-		return (b - a) * SmoothTime(t) + a;
-	}
-	
-	static float SmoothTime(float t)
-	{
-		return (-Math.Cos(Math.PI * t) / 2) + 0.5;
 	}
 	
 	vector GetWeaponRiseStartPosition()

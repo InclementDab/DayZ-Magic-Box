@@ -37,6 +37,7 @@ GameProjectClass {
 						"scripts/1_Core"
 						"JM/CF/defines"
 						"JM/CF/scripts/1_Core"
+						"DabsFramework/Scripts/1_Core"
 						"MagicBox/scripts/1_Core"
 					}
 					EntryPoint ""
@@ -59,6 +60,7 @@ GameProjectClass {
 						"JM/CF/LayoutBindingManager/3_Game"
 						"JM/CF/Permissions/3_Game"
 						"JM/CF/DebugUI/3_Game"
+						"DabsFramework/Scripts/3_Game"
 						"MagicBox/Scripts/3_Game"
 					}
 					EntryPoint "CreateGame"
@@ -71,6 +73,7 @@ GameProjectClass {
 						"JM/CF/scripts/4_World"
 						"JM/CF/ModStorage/4_World"
 						"JM/CF/Permissions/4_World"
+						"DabsFramework/Scripts/4_World"
 						"MagicBox/scripts/4_World"
 					}
 					EntryPoint ""
@@ -83,6 +86,7 @@ GameProjectClass {
 						"JM/CF/scripts/5_Mission"
 						"JM/CF/LayoutBindingManager/5_Mission"
 						"JM/CF/Permissions/5_Mission"
+						"DabsFramework/Scripts/5_Mission"
 						"MagicBox/scripts/5_Mission"
 					}
 					EntryPoint "CreateMission"
