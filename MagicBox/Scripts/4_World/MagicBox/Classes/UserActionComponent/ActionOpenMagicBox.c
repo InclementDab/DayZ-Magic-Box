@@ -28,9 +28,7 @@ class ActionOpenMagicBox: ActionInteractBase
 		m_ActionTarget = target;
 		MagicBox crate = MagicBox.Cast(target.GetObject());
 		
-		string selection = target.GetObject().GetActionComponentName(target.GetComponentIndex());
-		Print(selection);
-		return (crate && !crate.IsOpening() && selection == "main_box");
+		return (crate && !crate.IsOpening() && target.GetObject().GetActionComponentName(target.GetComponentIndex()) == "main_box");
 	}
 	
 	override void OnEndServer(ActionData action_data)

@@ -100,8 +100,7 @@ class MagicCrateManager: JMModuleBase
 	MagicBox TurnProxyIntoCrate(MagicBoxProxy crate)
 	{
 		MagicBox new_crate = MagicBox.Cast(GetGame().CreateObject("MagicBox", crate.GetPosition()));
-		// the 0.5 is a HACK
-		new_crate.SetPosition(crate.GetPosition() + "0 0.4 0");
+		new_crate.SetPosition(crate.GetPosition());
 		new_crate.SetOrientation(crate.GetOrientation());
 		new_crate.SetProxyObject(crate);
 		new_crate.SetCostToOpen(m_MagicCrateManagerSettings.MagicCratePrice);
