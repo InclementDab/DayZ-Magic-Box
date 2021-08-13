@@ -33,7 +33,7 @@
             ]
         }
     ],
-    "PossibleCrateItems": [{
+    "PossibleBoxItems": [{
             "Item": "M4A1",
             "Attachments": [
                 "M4_MPBttstck",

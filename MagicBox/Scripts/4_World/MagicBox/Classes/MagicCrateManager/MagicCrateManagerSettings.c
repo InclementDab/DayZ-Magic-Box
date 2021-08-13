@@ -16,7 +16,7 @@ class MagicCrateManagerSettings
 	};
 	
 		// DONT do optics on this stuff, most of its broken
-	ref array<ref CrateWeaponEntry> PossibleCrateItems = {
+	ref array<ref CrateWeaponEntry> PossibleBoxItems = {
 		/*new CrateWeaponEntry("M4A1", {
 			"M4_MPBttstck", 
 			"M4_MPHndgrd", 

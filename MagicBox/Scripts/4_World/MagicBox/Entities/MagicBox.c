@@ -156,7 +156,7 @@ class MagicBox: ItemBase
 			// Im replicating this here since if the item gets deleted the tick before success,
 			// the user would get nothing
 			while (!m_DisplayedWeapon) {
-				m_DisplayedWeapon = CreatePreviewItem(settings.PossibleCrateItems.GetRandomElement(), m_DisplayedWeaponPosition, GetOrientation());
+				m_DisplayedWeapon = CreatePreviewItem(settings.PossibleBoxItems.GetRandomElement(), m_DisplayedWeaponPosition, GetOrientation());
 			}
 			
 			OnCrateSucceed(m_DisplayedWeapon);
@@ -165,7 +165,7 @@ class MagicBox: ItemBase
 		
 		m_DisplayedWeaponPosition = Math.SmoothLerpVector(GetWeaponRiseStartPosition(), GetWeaponRiseEndPosition(), tfactor);
 		while (!m_DisplayedWeapon) {
-			m_DisplayedWeapon = CreatePreviewItem(settings.PossibleCrateItems.GetRandomElement(), m_DisplayedWeaponPosition, GetOrientation());
+			m_DisplayedWeapon = CreatePreviewItem(settings.PossibleBoxItems.GetRandomElement(), m_DisplayedWeaponPosition, GetOrientation());
 		}
 		
 		m_DisplayedWeapon.SetPosition(m_DisplayedWeaponPosition);
