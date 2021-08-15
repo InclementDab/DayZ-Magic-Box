@@ -68,6 +68,7 @@ class MagicCrateManagerSettings
 			case "none": return MagicBoxCurrencyType.NONE;
 			case "expansion": return MagicBoxCurrencyType.EXPANSION;
 			case "trader": return MagicBoxCurrencyType.TRADER;
+			case "traderplus": return MagicBoxCurrencyType.TRADERPLUS;
 		}
 		
 		Error("[MagicBox] Invalid currency type " + currency_type);

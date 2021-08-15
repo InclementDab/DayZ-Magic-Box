@@ -3,5 +3,6 @@ enum MagicBoxCurrencyType
 {
 	NONE,
 	EXPANSION,
-	TRADER
+	TRADER,
+	TRADERPLUS
 };

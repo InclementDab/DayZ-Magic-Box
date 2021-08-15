@@ -27,8 +27,10 @@ modded class PlayerBase
 	
 	// These are wrappers so we dont NEED mods like trader for the crate to work
 	// it also means that you can do things like Expansion, or whatever!
+	// needs to work on client and server
 	int GetMagicBoxCurrency()
 	{
+		int amount;
 		switch (m_MagicBoxCurrencyType) {
 			case MagicBoxCurrencyType.EXPANSION: {
 				JMModuleBase expansion_market = GetExpansionMarketModule();
@@ -40,16 +42,31 @@ modded class PlayerBase
 				// cursed_monies
 				TIntArray money = {};
 				Param2<PlayerBase, TIntArray> player_worth_params(this, money);
-				int expansion_market_currency;
-				g_Script.CallFunctionParams(expansion_market, "GetPlayerWorth", expansion_market_currency, player_worth_params);				
-				return expansion_market_currency;
+				g_Script.CallFunctionParams(expansion_market, "GetPlayerWorth", amount, player_worth_params);				
+				return amount;
 			}
 			
 			case MagicBoxCurrencyType.TRADER: {
 				// Trader mod function
-				int value;
-				g_Script.CallFunction(this, "getPlayerCurrencyAmount", value, null);
-				return value;
+				g_Script.CallFunction(this, "getPlayerCurrencyAmount", amount, null);
+				return amount;
+			}
+			
+			case MagicBoxCurrencyType.TRADERPLUS: {
+				
+				typename trader_plus_helper_type = String("TraderPlusHelper").ToType();
+				if (!trader_plus_helper_type) {
+					Error("TraderPlus not found!");
+					break;
+				}
+				
+				Class trader_plus_helper = trader_plus_helper_type.Spawn();
+				
+				Param2<PlayerBase, int> trader_plus_params(this, 0);
+				g_Script.CallFunctionParams(trader_plus_helper, "GetPlayerMoney", amount, trader_plus_params);
+				Print(amount);
+				
+				return amount;
 			}
 			
 			case MagicBoxCurrencyType.NONE: {
@@ -61,6 +78,7 @@ modded class PlayerBase
 		return -1;
 	}
 	
+	// only needs to work on server
 	void DeductMagicBoxCurrency(int amount)
 	{
 		switch (m_MagicBoxCurrencyType) {
