@@ -42,7 +42,7 @@ class MagicCrateManager: JMModuleBase
 		// assign a totally random crate on mission start
 		if (m_PossibleCrates.Count() == 1) {
 			// Edge case bug with the logic that selects a new crate requires me to force this to set
-			ShuffleNewCrate(m_PossibleCrates[0]);
+			m_CurrentCrate = TurnProxyIntoCrate(m_PossibleCrates[0]);
 		} else {
 			ShuffleNewCrate(null);
 		}
