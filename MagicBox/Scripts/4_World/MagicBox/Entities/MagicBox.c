@@ -136,7 +136,7 @@ class MagicBox: ItemBase
 		
 		m_WeaponSwapTimer.Run(0.5 * tfactor, this, "WeaponSwapBoxTimer", new Param2<float, int>(duration, start_time), false);
 	}
-	
+		
 	void OnBoxTimer(float duration, int start_time)
 	{
 		float tfactor = (1 / duration) * (GetGame().GetTime() - start_time) / 1000;
@@ -146,7 +146,7 @@ class MagicBox: ItemBase
 			m_BoxTimer.Stop();
 			
 			// It failed
-			if (Math.RandomIntInclusive(0, 100) < settings.BoxFailChance && settings.CanCrateChangeLocation && m_RollCount > settings.MinimumRollBeforeFailChance) {				
+			if (Math.RandomIntInclusive(0, 100) < settings.BoxFailChance && settings.CanCrateChangeLocation && m_RollCount > settings.MinimumRollBeforeFailChance && settings.PossibleBoxPositions.Count() > 1) {
 				GetGame().ObjectDelete(m_DisplayedWeapon);
 				m_DisplayedWeapon = CreatePreviewItem("Bear_Pink", m_DisplayedWeaponPosition, GetOrientation() + Vector(180, 0, 0));
 				OnCrateFail();
