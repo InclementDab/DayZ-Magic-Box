@@ -17,10 +17,7 @@ class MagicBox: ItemBase
 	protected ref Timer m_WeaponSwapTimer = new Timer(CALL_CATEGORY_GAMEPLAY);
 	
 	protected ref MagicBoxGlow m_Glow;
-<<<<<<< Updated upstream
-=======
-	protected ref MagicBoxGlowBase m_Glow_Base;
->>>>>>> Stashed changes
+	protected ref MagicBoxGlowBase m_GlowBase;
 	protected ChemlightLight m_Light;
 	protected MagicBoxProxy m_HiddenProxyObject;
 	
@@ -33,13 +30,9 @@ class MagicBox: ItemBase
 			m_Light.SetCastShadow(false);
 			
 			m_Glow = new MagicBoxGlow();
-<<<<<<< Updated upstream
+			m_GlowBase = new MagicBoxGlowBase();
 			SEffectManager.PlayOnObject(m_Glow, this);
-=======
-			m_Glow_Base = new MagicBoxGlowBase();
-			SEffectManager.PlayOnObject(m_Glow, this);
-			SEffectManager.PlayOnObject(m_Glow_Base, this);
->>>>>>> Stashed changes
+			SEffectManager.PlayOnObject(m_GlowBase, this);
 		}
 		
 		RegisterNetSyncVariableBool("m_IsOpening");

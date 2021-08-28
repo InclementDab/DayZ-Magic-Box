@@ -2,12 +2,8 @@ EffectDef {
  Emitors {
   EmitorDef sparkle_glow_red {
    ShapeType Box
-<<<<<<< Updated upstream
-   MaxNum 2200
-=======
    ShapeSize 2 0 2
    MaxNum 2000
->>>>>>> Stashed changes
    BirthRate 100
    BirthRateRND 10
    BirthRateVel 1
@@ -48,14 +44,6 @@ EffectDef {
   }
   EmitorDef beam_glow_blue {
    ShapeType Box
-<<<<<<< Updated upstream
-   ConeAngle 360 0 8
-   MaxNum 2200
-   BirthRate 100
-   BirthRateRND 10
-   BirthRateVel 1
-   Offset 0 0.14566 0
-=======
    ShapeSize 3.2 22 3.2
    ConeAngle 360 0 8
    MaxNum 2500
@@ -63,7 +51,6 @@ EffectDef {
    BirthRateRND 10
    BirthRateVel 1
    Offset 0 9.24506 0
->>>>>>> Stashed changes
    Angles 0 0 0
    LocalTransform 1
    Material "{D252F1C26CBA12FA}graphics/particles/materials/fire/fire_flare_03.emat"
@@ -71,13 +58,8 @@ EffectDef {
    CenterY 0
    ScaleX 0.1
    ScaleY 1
-<<<<<<< Updated upstream
-   SizeMultiplier 3
-   SizeRND 1
-=======
    SizeMultiplier 6
    SizeRND 4
->>>>>>> Stashed changes
    RandomRotDir 0
    RotMultiplier 11
    StretchMultiplier 1
