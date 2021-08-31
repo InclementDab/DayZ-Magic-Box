@@ -52,6 +52,7 @@ modded class PlayerBase
 				return value;
 			}
 			
+			case MagicBoxCurrencyType.ITEMS:
 			case MagicBoxCurrencyType.NONE: {
 				return int.MAX;
 			}

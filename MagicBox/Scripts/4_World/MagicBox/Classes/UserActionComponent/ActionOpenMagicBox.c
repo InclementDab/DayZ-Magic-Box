@@ -56,7 +56,7 @@ class ActionOpenMagicBox: ActionInteractBase
 	
 	override string GetText()
 	{		
-		if (!m_ActionTarget) {
+		if (!m_ActionTarget || !m_Player) {
 			return "";
 		}
 		
@@ -65,8 +65,13 @@ class ActionOpenMagicBox: ActionInteractBase
 			return "Invalid Crate";
 		}
 				
-		if (m_Player && m_Player.GetMagicBoxCurrencyType() == MagicBoxCurrencyType.NONE) {
+		if (m_Player.GetMagicBoxCurrencyType() == MagicBoxCurrencyType.NONE) {
 			return "Open Crate";
+		}
+		
+		if (m_Player.GetMagicBoxCurrencyType() == MagicBoxCurrencyType.ITEMS) {
+			
+			
 		}
 				
 		if (m_Player.GetMagicBoxCurrency() < crate.GetCostToOpen()) {
@@ -75,4 +80,6 @@ class ActionOpenMagicBox: ActionInteractBase
 	
 		return string.Format("Open Crate [%1]", crate.GetCostToOpen());
 	}
+	
+	
 }

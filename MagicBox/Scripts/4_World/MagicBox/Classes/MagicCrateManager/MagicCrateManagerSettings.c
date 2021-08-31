@@ -1,10 +1,13 @@
 class MagicCrateManagerSettings
 {
-	// EXPANSION, TRADER, NONE
+	// NONE, EXPANSION, TRADER, TRADERPLUS, ITEMS
 	string MagicCrateExchangeType = "NONE";
 	
 	// only valid for EXPANSION and TRADER types
 	int MagicCratePrice = 950;
+	
+	// only valid for ITEMS type
+	ref array<string> MagicCrateItems = {};
 	
 	bool CanCrateChangeLocation = true;
 	int MinimumRollBeforeFailChance = 5;
@@ -68,6 +71,8 @@ class MagicCrateManagerSettings
 			case "none": return MagicBoxCurrencyType.NONE;
 			case "expansion": return MagicBoxCurrencyType.EXPANSION;
 			case "trader": return MagicBoxCurrencyType.TRADER;
+			//case "traderplus": return MagicBoxCurrencyType.TRADERPLUS;
+			case "items": return MagicBoxCurrencyType.ITEMS;
 		}
 		
 		Error("[MagicBox] Invalid currency type " + currency_type);
