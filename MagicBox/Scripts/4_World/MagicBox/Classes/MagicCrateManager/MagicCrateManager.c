@@ -23,6 +23,11 @@ class MagicCrateManager: JMModuleBase
 	
 	override void OnMissionStart()
 	{
+		// Idk why this is being called but it is and its crashing some people
+		if (GetGame().IsClient() && GetGame().IsMultiplayer()) {
+			return;
+		}
+		
 		if (!FileExist(SETTINGS_FILE)) {
 			CopyFile("MagicBox\\Scripts\\Data\\MagicCrateManagerSettings.json", SETTINGS_FILE);
 		}
