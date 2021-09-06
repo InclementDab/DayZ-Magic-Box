@@ -5,7 +5,7 @@ class MagicCrateManager: JMModuleBase
 		return MagicCrateManager.Cast(GetModuleManager().GetModule(MagicCrateManager));
 	}
 	
-	static const string SETTINGS_FILE = "$profile:MagicCrateManagerSettings.json";
+	static const string SETTINGS_FILE = "$mission:MagicCrateManagerSettings.json";
 	
 	protected ref array<MagicBoxProxy> m_PossibleCrates = {};
 	protected MagicBox m_CurrentCrate;
