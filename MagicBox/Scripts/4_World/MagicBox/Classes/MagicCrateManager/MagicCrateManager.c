@@ -5,7 +5,7 @@ class MagicCrateManager: JMModuleBase
 		return MagicCrateManager.Cast(GetModuleManager().GetModule(MagicCrateManager));
 	}
 	
-	static const string SETTINGS_FILE = "$mission:MagicCrateManagerSettings.json";
+	static const string SETTINGS_FILE = "$mission:mystery_box\\Settings.json";
 	
 	protected ref array<MagicBoxProxy> m_PossibleCrates = {};
 	protected MagicBox m_CurrentCrate;
@@ -25,6 +25,11 @@ class MagicCrateManager: JMModuleBase
 	{
 		// Idk why this is being called but it is and its crashing some people
 		if (GetGame().IsClient() && GetGame().IsMultiplayer()) {
+			return;
+		}
+		
+		if (!MakeDirectory("$mission:mystery_box")) {
+			Error("Failed to create mystery_box settings directory");
 			return;
 		}
 		
