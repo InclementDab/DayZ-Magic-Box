@@ -5,7 +5,8 @@ class MagicCrateManager: JMModuleBase
 		return MagicCrateManager.Cast(GetModuleManager().GetModule(MagicCrateManager));
 	}
 	
-	static const string SETTINGS_FILE = "$mission:MagicBox\\Settings.json";
+	//static const string SETTINGS_FILE = "$mission:MagicBox\\Settings.json";
+	static const string SETTINGS_FILE = "$profile:MagicCrateManagerSettings.json";
 	
 	protected ref array<MagicBoxProxy> m_PossibleCrates = {};
 	protected MagicBox m_CurrentCrate;
@@ -28,10 +29,11 @@ class MagicCrateManager: JMModuleBase
 			return;
 		}
 		
+		/*
 		if (!MakeDirectory("$mission:MagicBox")) {
 			Error("Failed to create MagicBox settings directory");
 			return;
-		}
+		}*/
 		
 		if (!FileExist(SETTINGS_FILE)) {
 			CopyFile("MagicBox\\Scripts\\Data\\MagicCrateManagerSettings.json", SETTINGS_FILE);
