@@ -1,0 +1,102 @@
+EffectDef {
+ Emitors {
+  EmitorDef sparkle_glow_red {
+   ShapeType Box
+   ShapeSize 3.2 0 1.2
+   MaxNum 100
+   BirthRate 10
+   BirthRateRND 1
+   BirthRateVel 1
+   Offset 0 0 0
+   Material "{5829AC63BAF92E5A}graphics/particles/materials/smoke/smoke_cloud_01_b_trans_roadflare_02.emat"
+   CenterX 0
+   CenterY 1
+   ScaleX 0.9
+   SizeMultiplier 0.1
+   SizeRND 0.1
+   RandomRotDir 1
+   RotMultiplier 11
+   StretchMultiplier 1
+   StreakFullUV 1
+   VelAngle 1
+   RandomAngle 0
+   Sort 0
+   BillboardingType Full
+   Velocity 0.2
+   VelocityRND 0.2
+   VelAffect 1
+   AirResistance 0
+   AirResistanceRND 0
+   Wind 0
+   RandomFrame 1
+   LifeTime 1
+   LifeTimeRND 100
+   Color {
+    0 1 0.8588 0.8157 0.1267 0.8101 0.585 0.3412 0.2703 0.8165 0.1276 0 1 0 0 0.0063
+   }
+   Alpha {
+    0 1 1 0
+   }
+   Size {
+    0 0.1 1 0.35
+   }
+   EffectTime 0.001
+  }
+  EmitorDef beam_glow_blue {
+   ShapeType Box
+   ShapeSize 3.2 0 1.2
+   ConeAngle 360 0 8
+   MaxNum 50
+   BirthRate 10
+   BirthRateRND 1
+   BirthRateVel 1
+   Offset 0 0.90758 0
+   Angles 0 0 0
+   LocalTransform 1
+   Material "{D252F1C26CBA12FA}graphics/particles/materials/fire/fire_flare_03.emat"
+   CenterX 0
+   CenterY 0
+   ScaleX 1
+   ScaleY 1
+   SizeMultiplier 4
+   SizeRND 4
+   RandomRotDir 0
+   RotMultiplier 0
+   StretchMultiplier 0
+   StreakFullUV 1
+   VelAngle 0
+   RandomAngle 0
+   Sort 0
+   BillboardingType Full
+   Velocity 0
+   VelocityRND 0
+   VelAffect 0
+   AirResistance 0
+   AirResistanceRND 0
+   GravityMultiply 0.001
+   GravityMultiplyRND 0.001
+   Restitution 0
+   Spring 0
+   Wind 0
+   RandomFrame 1
+   LifeTime 5
+   LifeTimeRND 5
+   Color {
+    0 0.0541 0.1081 0.2162 1 0.0435 0.3696 1
+   }
+   Alpha {
+    0 0.18919 0.46252 0.18919 1 0.16216
+   }
+   Size {
+    0 0.13514 1 0.59459
+   }
+   EffectTime 0.001
+   ColorMast {
+    0 0.0811 0.1622 0.5135 1 0 0.2717 0.4348
+   }
+   AlphaMast {
+    0 0.59459 1 0.62162
+   }
+  }
+ }
+}

@@ -16,6 +16,8 @@ class MagicBox: ItemBase
 	protected ref Timer m_BoxTimer = new Timer(CALL_CATEGORY_GAMEPLAY);
 	protected ref Timer m_WeaponSwapTimer = new Timer(CALL_CATEGORY_GAMEPLAY);
 	
+	protected ref MagicBoxGlow m_Glow;
+	protected ref MagicBoxGlowBase m_GlowBase;
 	protected ChemlightLight m_Light;
 	protected MagicBoxProxy m_HiddenProxyObject;
 	
@@ -26,6 +28,11 @@ class MagicBox: ItemBase
 			m_Light.AttachOnObject(this); 
 			m_Light.SetColorToBlue();
 			m_Light.SetCastShadow(false);
+			
+			m_Glow = new MagicBoxGlow();
+			m_GlowBase = new MagicBoxGlowBase();
+			SEffectManager.PlayOnObject(m_Glow, this);
+			SEffectManager.PlayOnObject(m_GlowBase, this);
 		}
 		
 		RegisterNetSyncVariableBool("m_IsOpening");
@@ -38,6 +45,7 @@ class MagicBox: ItemBase
 			m_Light.Destroy();
 		}
 		
+		delete m_Glow;
 		delete m_BoxTimer;
 		delete m_WeaponSwapTimer;
 	}
