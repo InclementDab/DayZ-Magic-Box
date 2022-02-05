@@ -48,6 +48,13 @@ modded class PlayerBase
 			case MagicBoxCurrencyType.TRADER: {
 				// Trader mod function
 				int value;
+				Class trader_check;
+				EnScript.GetClassVar(this, "m_Trader_CurrencyClassnames", 0, trader_check);
+				if (!trader_check) {
+					Error("Trader Check failed");
+					return int.MAX;
+				}
+				
 				g_Script.CallFunction(this, "getPlayerCurrencyAmount", value, null);
 				return value;
 			}

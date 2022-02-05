@@ -1,0 +1,33 @@
+EffectDef {
+ Emitors {
+  EmitorDef Beam {
+   ShapeType Ellipse
+   ShapeSize 0 0 0
+   ConeAngle 0 0 0
+   MaxNum 200
+   BirthRate 15
+   Material "{9833D8BE7A512C63}graphics/Particles/materials/flash/electric.emat"
+   SizeMultiplier 8
+   RandomRotDir 1
+   RotMultiplier 0
+   StretchMultiplier 12
+   StreakFullUV 0
+   VelAngle 0
+   RandomAngle 0
+   BillboardingType Full
+   Velocity 30
+   Spring 0
+   LifeTime 5
+   Color {
+    0 0 0.7532 1 1 0 0.7468 1
+   }
+   Alpha {
+    0 0 0.0255 0 0.05564 0.05696 1 0
+   }
+   Size {
+    0 1 0.49845 1 1 1
+   }
+   EffectTime 5
+  }
+ }
+}

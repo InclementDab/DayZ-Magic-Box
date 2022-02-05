@@ -17,6 +17,7 @@ class MagicBox: ItemBase
 	protected ref Timer m_WeaponSwapTimer = new Timer(CALL_CATEGORY_GAMEPLAY);
 	
 	protected ChemlightLight m_Light;
+	protected Particle m_Aura;
 	protected MagicBoxProxy m_HiddenProxyObject;
 	
 	void MagicBox()
@@ -26,6 +27,8 @@ class MagicBox: ItemBase
 			m_Light.AttachOnObject(this); 
 			m_Light.SetColorToBlue();
 			m_Light.SetCastShadow(false);
+			
+			m_Aura = Particle.PlayOnObject(ParticleList.MYSTERY_BOX_AURA, this);
 		}
 		
 		RegisterNetSyncVariableBool("m_IsOpening");
@@ -38,6 +41,7 @@ class MagicBox: ItemBase
 			m_Light.Destroy();
 		}
 		
+		GetGame().ObjectDelete(m_Aura);
 		delete m_BoxTimer;
 		delete m_WeaponSwapTimer;
 	}
@@ -277,11 +281,13 @@ class MagicBox: ItemBase
 	{
 		EffectSound sound1;
 		if (!PlaySoundSet(sound1, "BoxJingle_SoundSet", 0, 0)) {
+			Error("Failed to play soundset BoxJingle_SoundSet");
 			return;
 		}
 		
 		EffectSound sound2;
 		if (!PlaySoundSet(sound2, "BoxOpen_SoundSet", 0, 0)) {
+			Error("Failed to play soundset BoxOpen_SoundSet");
 			return;
 		}
 	}
@@ -290,6 +296,7 @@ class MagicBox: ItemBase
 	{
 		EffectSound sound;
 		if (!PlaySoundSet(sound, "BoxClose_SoundSet", 0, 0)) {
+			Error("Failed to play soundset BoxClose_SoundSet");
 			return;
 		}
 	}
