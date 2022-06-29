@@ -31,7 +31,7 @@ modded class PlayerBase
 	{
 		switch (m_MagicBoxCurrencyType) {
 			case MagicBoxCurrencyType.EXPANSION: {
-				JMModuleBase expansion_market = GetExpansionMarketModule();
+				CF_ModuleCore expansion_market = GetExpansionMarketModule();
 				if (!expansion_market) {
 					Error("[MagicBox] Expansion Market not found");
 					break;
@@ -72,7 +72,7 @@ modded class PlayerBase
 	{
 		switch (m_MagicBoxCurrencyType) {
 			case MagicBoxCurrencyType.EXPANSION: {
-				JMModuleBase expansion_market = GetExpansionMarketModule();
+				CF_ModuleCore expansion_market = GetExpansionMarketModule();
 				if (!expansion_market) {
 					Error("[MagicBox] Expansion Market not found");
 					break;
@@ -107,18 +107,13 @@ modded class PlayerBase
 		}		
 	}
 	
-	JMModuleBase GetExpansionMarketModule()
+	CF_ModuleCore GetExpansionMarketModule()
 	{
 		typename expansion_market = String("ExpansionMarketModule").ToType();
 		if (!expansion_market) {
 			return null;
 		}
 		
-		JMModuleBase module = GetModuleManager().GetModule(expansion_market);
-		if (!module) {
-			return null;
-		}
-		
-		return module;
+		return CF_ModuleCoreManager.Get(expansion_market);
 	}
 }

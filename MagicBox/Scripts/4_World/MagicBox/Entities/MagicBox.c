@@ -41,7 +41,10 @@ class MagicBox: ItemBase
 			m_Light.Destroy();
 		}
 		
-		GetGame().ObjectDelete(m_Aura);
+		if (GetGame()) {
+			GetGame().ObjectDelete(m_Aura);
+		}
+		
 		delete m_BoxTimer;
 		delete m_WeaponSwapTimer;
 	}
@@ -148,7 +151,6 @@ class MagicBox: ItemBase
 		// timer is done, we can get out
 		if (tfactor >= 1) {
 			m_BoxTimer.Stop();
-			
 			// It failed
 			if (Math.RandomIntInclusive(0, 100) < settings.BoxFailChance && settings.CanCrateChangeLocation && m_RollCount > settings.MinimumRollBeforeFailChance && settings.PossibleBoxPositions.Count() > 1) {
 				GetGame().ObjectDelete(m_DisplayedWeapon);
