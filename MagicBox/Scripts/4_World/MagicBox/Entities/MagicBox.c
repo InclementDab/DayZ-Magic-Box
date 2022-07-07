@@ -24,7 +24,7 @@ class MagicBox: ItemBase
 	{
 		if (IsMissionClient()) {
 			m_Light = ChemlightLight.Cast(ScriptedLightBase.CreateLight(ChemlightLight));
-			m_Light.AttachOnObject(this); 
+			m_Light.AttachOnObject(this, GetWeaponRiseStartPosition() + "0.01 0 0"); 
 			m_Light.SetColorToBlue();
 			m_Light.SetCastShadow(false);
 			
@@ -33,6 +33,17 @@ class MagicBox: ItemBase
 		
 		RegisterNetSyncVariableBool("m_IsOpening");
 		RegisterNetSyncVariableInt("m_CostToOpen");
+		
+		if (GetGame().IsServer()) {
+			MagicCrateManager manager = MagicCrateManager.GetInstance();
+			if (manager) {
+				MagicCrateManagerSettings settings = manager.GetSettings();
+				if (settings) {
+					// update magic crate price always
+					SetCostToOpen(settings.MagicCratePrice);
+				}
+			}
+		}
 	}
 	
 	void ~MagicBox()
@@ -41,10 +52,11 @@ class MagicBox: ItemBase
 			m_Light.Destroy();
 		}
 		
-		if (GetGame()) {
+		if (m_Aura && GetGame()) {
+			m_Aura.Stop();	
 			GetGame().ObjectDelete(m_Aura);
 		}
-		
+				
 		delete m_BoxTimer;
 		delete m_WeaponSwapTimer;
 	}

@@ -16,7 +16,7 @@ class CrateWeaponEntry
 	
 	ItemBase CreateEntry(vector position, vector orientation)
 	{
-		ItemBase item = ItemBase.Cast(GetGame().CreateObject(Item, position, false, false, false));
+		ItemBase item = ItemBase.Cast(GetGame().CreateObjectEx(Item, position, ECE_NONE));
 		if (!item) {
 			return item;
 		}

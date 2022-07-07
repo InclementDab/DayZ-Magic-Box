@@ -138,7 +138,7 @@ class MagicCrateManager: JMModuleBase
 		GetGame().ObjectDelete(crate);
 		return proxy;
 	}
-	
+		
 	MagicCrateManagerSettings GetSettings()
 	{
 		return m_MagicCrateManagerSettings;
