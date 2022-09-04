@@ -105,7 +105,17 @@ class MagicBox: ItemBase
 	void OnCrateSucceed(ItemBase item)
 	{
 		m_RollCount++;
-		m_DisplayedWeapon.SetMysteryBoxState(MysteryBoxWeaponState.AWAITING_USER);
+				
+		// remember EnumerateInventory also returns m_DisplayedWeapon in that list
+		array<EntityAI> attachments = {};
+		m_DisplayedWeapon.GetInventory().EnumerateInventory(InventoryTraversalType.PREORDER, attachments);
+		foreach (EntityAI attachment: attachments) {
+			ItemBase attachment_item = ItemBase.Cast(attachment);
+			if (attachment_item) {	
+				attachment_item.SetMysteryBoxState(MysteryBoxWeaponState.AWAITING_USER);
+			}
+		}
+		
 		m_BoxTimer.Run(0.01, this, "OnWaitTimer", new Param2<float, int>(USER_WAIT_TIME, GetGame().GetTime()), true);
 	}
 	
@@ -242,7 +252,7 @@ class MagicBox: ItemBase
 			return item;
 		}
 		
-		item.SetMysteryBoxState(MysteryBoxWeaponState.PREVIEW);
+		item.SetMysteryBoxState(MysteryBoxWeaponState.PREVIEW);		
 		return item;
 	}
 	

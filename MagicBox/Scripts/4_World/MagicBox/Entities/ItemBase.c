@@ -16,8 +16,16 @@ modded class ItemBase
 	{
 		super.EEItemLocationChanged(oldLoc, newLoc);
 		
-		if (GetGame().IsServer() && GetMysteryBoxState() == MysteryBoxWeaponState.AWAITING_USER) {
-			SetMysteryBoxState(MysteryBoxWeaponState.TAKEN);
+		if (GetGame().IsServer() && GetMysteryBoxState() == MysteryBoxWeaponState.AWAITING_USER) {			
+			// remember EnumerateInventory also returns this in that list
+			array<EntityAI> attachments = {};
+			GetInventory().EnumerateInventory(InventoryTraversalType.PREORDER, attachments);
+			foreach (EntityAI attachment: attachments) {
+				ItemBase attachment_item = ItemBase.Cast(attachment);
+				if (attachment_item) {
+					attachment_item.SetMysteryBoxState(MysteryBoxWeaponState.TAKEN);
+				}
+			}
 		}
 	}
 	
